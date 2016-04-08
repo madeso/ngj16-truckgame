@@ -12,6 +12,7 @@ Camera controls
 Support 4 controllers
 
 Additional tasks:
+
 Mechanics
   - Semi-truck behaviour with 2 linked gameobjects
   - Explosive shots that cause instability to those they hit
