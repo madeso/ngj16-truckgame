@@ -9,8 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 446584}
   - 218: {fileID: 21873816}
-  - 154: {fileID: 15405234}
   - 114: {fileID: 11452622}
+  - 65: {fileID: 6595150}
+  - 65: {fileID: 6551528}
+  - 65: {fileID: 6592402}
   m_Layer: 0
   m_Name: Terrain1
   m_TagString: Untagged
@@ -58,6 +60,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 446584}
   m_RootOrder: 0
+--- !u!65 &6551528
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 10}
+  m_Center: {x: 9, y: 0.5, z: 5}
+--- !u!65 &6592402
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 10}
+  m_Center: {x: 1, y: 0.5, z: 5}
+--- !u!65 &6595150
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 1, z: 10}
+  m_Center: {x: 5, y: -0.5, z: 5}
 --- !u!114 &11452622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -69,16 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3873a465c3d45c9952df27a972f435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!154 &15405234
-TerrainCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133888}
-  m_Material: {fileID: 0}
-  m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: bab0742ad64b9441abf5adcf064b7da4, type: 2}
-  m_EnableTreeColliders: 1
 --- !u!218 &21873816
 Terrain:
   m_ObjectHideFlags: 1
