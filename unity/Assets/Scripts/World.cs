@@ -15,26 +15,6 @@ public class World : MonoBehaviour {
 
 	private List<WorldPart> alive = new List<WorldPart>(); // ordered from first y to last y
 
-	private static float VariableCameraPosition(float x) {
-		var c = Camera.main;
-		var r = c.ScreenPointToRay(new Vector3(0,c.pixelHeight * x,0));
-		var t = -r.origin.y / r.direction.y; // find t where y=0
-		var p = r.GetPoint(t);
-		return p.z;
-	}
-
-	private float CameraPositionBottom {
-		get {
-			return  VariableCameraPosition(0.0f);
-		}
-	}
-
-	private float CameraPositionTop {
-		get {
-			return VariableCameraPosition(1.0f);
-		}
-	}
-
 	private static float WidthOf(WorldPart p) {
 		// todo: determine actual size
 		var t = p.gameObject.GetComponent<Terrain>();
@@ -70,14 +50,14 @@ public class World : MonoBehaviour {
 		var spawned = 0;
 
 		var end = this.EndPosition;
-		if (this.CameraPositionTop > end) {
+		if (CameraUtil.CameraPositionTop > end) {
 			var p = GameObject.Instantiate (this.RandomPart);
 			var v = new Vector3 (this.transform.position.x, this.transform.position.y, end + WidthOf (p) / 2.0f);
 			this.alive.Add (p);
 			p.transform.position = v;
 			++spawned;
 		}
-		if (this.CameraPositionBottom > this.FirstPosition) {
+		if (CameraUtil.CameraPositionBottom > this.FirstPosition) {
 			// destroy first
 		}
 
