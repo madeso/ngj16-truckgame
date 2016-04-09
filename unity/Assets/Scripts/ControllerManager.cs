@@ -22,24 +22,24 @@ public class ControllerManager : MonoBehaviour {
                 controllers.Add(new Controller(device));
             }
             Controller activeController = FindControllerByInputDevice(device);
-            if (device.LeftStick.X < 0f){
+            if (device.DPadLeft.IsPressed){
                 // Pointing left
-                if (device.LeftStick.Y < 0f){
+                if (device.DPadDown.IsPressed){
                     // Pointing up
                     activeController.roleId = 0;
                     AssignController(0, activeController);
-                } else if (device.LeftStick.Y > 0f){
+                } else if (device.DPadUp.IsPressed){
                     // Pointing down
                     activeController.roleId = 1;
                     AssignController(0, activeController);
                 }
-            } else if (device.LeftStick.X > 0f) {
+            } else if (device.DPadRight.IsPressed) {
                 // Pointing right
-                if (device.LeftStick.Y < 0f){
+                if (device.DPadLeft.IsPressed){
                     // Pointing up
                     activeController.roleId = 0;
                     AssignController(1, activeController);
-                } else if (device.LeftStick.Y > 0f){
+                } else if (device.DPadRight.IsPressed){
                     // Pointing down
                     activeController.roleId = 1;
                     AssignController(1, activeController);
