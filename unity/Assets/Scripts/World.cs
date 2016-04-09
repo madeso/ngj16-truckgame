@@ -48,7 +48,7 @@ public class World : MonoBehaviour {
 			var last = this.alive.Count-1;
 			if( last < 0 ) {
 				// no items, means the end pos is way back
-				return 0.0f;
+				return this.transform.position.z;
 			}
 			return TopOf(this.alive[last]);
 		}
@@ -58,7 +58,7 @@ public class World : MonoBehaviour {
 		get {
 			if( this.alive.Count <=0 ) {
 				// no items, means the start pos is way back
-				return 0.0f;
+				return this.transform.position.z;
 			}
 			return TopOf(this.alive[0]);
 		}
@@ -70,7 +70,7 @@ public class World : MonoBehaviour {
 		var end = this.EndPosition;
 		if (this.CameraPositionTop > end) {
 			var p = GameObject.Instantiate (this.RandomPart);
-			var v = new Vector3 (0, 0, end + WidthOf (p) / 2.0f);
+			var v = new Vector3 (this.transform.position.x, this.transform.position.y, end + WidthOf (p) / 2.0f);
 			this.alive.Add (p);
 			p.transform.position = v;
 			++spawned;
