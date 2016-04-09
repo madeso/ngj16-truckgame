@@ -3,25 +3,25 @@ using System.Collections.Generic;
 
 public class World : MonoBehaviour {
 
-	public WorldPart[] Parts;
+	public GameObject[] Parts;
 	public float TerrainBias = 0.01f; // the ammount the terrain is allowed to overlap
 
-	private WorldPart RandomPart {
+	private GameObject RandomPart {
 		get {
 			var i = Random.Range(0, Parts.Length);
 			return Parts[i];
 		}
 	}
 
-	private List<WorldPart> alive = new List<WorldPart>(); // ordered from first y to last y
+	private List<GameObject> alive = new List<GameObject>(); // ordered from first y to last y
 
-	private static float WidthOf(WorldPart p) {
+	private static float WidthOf(GameObject p) {
 		// todo: determine actual size
-		var t = p.gameObject.GetComponent<Terrain>();
+		var t = p.gameObject.GetComponentInChildren<Terrain>();
 		return t.terrainData.size.z;
 	}
 
-	private static float TopOf(WorldPart p) {
+	private static float TopOf(GameObject p) {
 		return p.transform.position.z + WidthOf(p) / 2.0f;
 	}
 
