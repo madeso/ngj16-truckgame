@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
+// This is placed on the furthes player away, so place the
+// camera as a parent of the gameobject that has this script
 public class OutOfScreenManager : MonoBehaviour {
 
 	public List<Health> Players = new List<Health>();
@@ -19,6 +21,8 @@ public class OutOfScreenManager : MonoBehaviour {
 				p.GetOutsideOfWorld();
 			}
 		}
+
+		// remove players who have died?
 	}
 
 	void Update () {
