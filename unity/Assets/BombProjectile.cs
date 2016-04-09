@@ -14,6 +14,13 @@ public class BombProjectile : MonoBehaviour {
 	
 	}
 	void OnTriggerEnter(Collider other) {
+		var go = other.gameObject;
+		if( go != null ) {
+			var h = go.GetComponent<Health>();
+			if( h != null ) {
+				h.IncreaseLeakRate( 10 );
+			}
+		}
 		Instantiate(explosion,transform.position,transform.rotation);
 		Destroy(gameObject);
 	}
