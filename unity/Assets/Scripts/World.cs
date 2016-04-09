@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class World : MonoBehaviour {
 
 	public WorldPart[] Parts;
+	public float TerrainBias = 0.01f; // the ammount the terrain is allowed to overlap
 
 	private WorldPart RandomPart {
 		get {
@@ -36,7 +37,8 @@ public class World : MonoBehaviour {
 
 	private static float WidthOf(WorldPart p) {
 		// todo: determine actual size
-		return 10;
+		var t = p.gameObject.GetComponent<Terrain>();
+		return t.terrainData.size.z;
 	}
 
 	private static float TopOf(WorldPart p) {
@@ -50,7 +52,7 @@ public class World : MonoBehaviour {
 				// no items, means the end pos is way back
 				return this.transform.position.z;
 			}
-			return TopOf(this.alive[last]);
+			return TopOf(this.alive[last]) - this.TerrainBias;
 		}
 	}
 

@@ -241,7 +241,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 435542, guid: d56add6dd6314433896e923ff98a6903, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 435542, guid: d56add6dd6314433896e923ff98a6903, type: 2}
       propertyPath: m_LocalPosition.y
@@ -249,7 +249,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 435542, guid: d56add6dd6314433896e923ff98a6903, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -12.47
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 435542, guid: d56add6dd6314433896e923ff98a6903, type: 2}
       propertyPath: m_LocalRotation.x
@@ -270,6 +270,10 @@ Prefab:
     - target: {fileID: 435542, guid: d56add6dd6314433896e923ff98a6903, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418156, guid: d56add6dd6314433896e923ff98a6903, type: 2}
+      propertyPath: TerrainBias
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d56add6dd6314433896e923ff98a6903, type: 2}
