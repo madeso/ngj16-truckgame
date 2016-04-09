@@ -3069,7 +3069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barrel: {fileID: 1978499027}
-  spawnPosition: {fileID: 1978499027}
+  spawnPosition: {fileID: 1744587881}
   RotateSpeed: 0.4
   shotChargePower: 10
   maxShotPower: 1000

@@ -40,7 +40,7 @@ public class ShootingTestControl : MonoBehaviour {
             if (Input.GetButtonUp("Fire1")){
                 shootComponent.DoShoot();
             }
-            shootComponent.barrel.Rotate(0, Input.GetAxis("Horizontal")*shootComponent.RotateSpeed*Time.deltaTime, 0);
+			shootComponent.barrel.Rotate(0,0,Input.GetAxis("Horizontal")*shootComponent.RotateSpeed*Time.deltaTime);
         }
 	}
 }
