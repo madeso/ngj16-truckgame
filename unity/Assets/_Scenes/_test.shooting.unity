@@ -1151,6 +1151,8 @@ GameObject:
   - 65: {fileID: 1949100583}
   - 23: {fileID: 1949100582}
   - 54: {fileID: 1949100581}
+  - 114: {fileID: 1949100585}
+  - 114: {fileID: 1949100586}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1230,3 +1232,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1949100579}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1949100585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1949100579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09c609ed7038485c92651ef3d83a38e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+--- !u!114 &1949100586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1949100579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec66c4d8a28842fbb045276b644905a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Explosion: {fileID: 177042, guid: f57343f901c614c4bac3e4e58aed0ac4, type: 2}
+  TimeUntilDeath: 3
+  ExplosionIntervalMin: 0.05
+  ExplosionIntervalMax: 0.14

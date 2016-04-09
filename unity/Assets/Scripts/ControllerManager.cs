@@ -45,6 +45,10 @@ public class ControllerManager : MonoBehaviour {
                     AssignController(1, activeController);
                 }
             }
+
+            if (device.MenuWasPressed) {
+                StartGame();
+            }
         }
     }
 
@@ -56,6 +60,10 @@ public class ControllerManager : MonoBehaviour {
         if (truckId >= trucks.Length){
             return;
         }
-        //trucks[truckId].GetComponent<Truck>().controller = controller;
+        trucks[truckId].GetComponent<DrivingControls>().Controller = controller;
+    }
+
+    private void StartGame(){
+        gameObject.SetActive(false);
     }
 }

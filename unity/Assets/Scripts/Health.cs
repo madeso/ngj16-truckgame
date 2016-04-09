@@ -8,18 +8,18 @@ public class Health : MonoBehaviour
 
 	public float HealthPercentage {
 		get {
-			return currentHealth / maxHealth;
+			return this.currentHealth / this.maxHealth;
 		}
 	}
 
 	public bool IsAlive {
 		get {
-			return currentHealth > 0.0f;
+			return this.currentHealth > 0.0f;
 		}
 	}
 
 	public void GetOutsideOfWorld() {
-		currentHealth = -1.0f;
+		this.currentHealth = -1.0f;
 	}
 
     /// <summary>
@@ -27,34 +27,34 @@ public class Health : MonoBehaviour
     /// </summary>
     public float LeakRate {
         get {
-            return leakRate;
+			return this.leakRate;
         }
     }
 
     public void Start()
     {
-        currentHealth = maxHealth;
+		this.currentHealth = this.maxHealth;
     }
 
     public void IncreaseLeakRate (float leakRate)
     {
 		Debug.Assert(leakRate > 0.0f, "leak rate needs to be positive");
-        leakRate += leakRate;
+		this.leakRate += leakRate;
     }
 
     public void DecreaseLeakRate (float leakRate)
     {
 		Debug.Assert(leakRate > 0.0f, "leak rate needs to be positive");
-		leakRate = Mathf.Max(leakRate - leakRate, 0.0f);
+		this.leakRate = Mathf.Max(this.leakRate - leakRate, 0.0f);
     }
 
     public void ResetLeak ()
     {
-        leakRate = 0f;
+		this.leakRate = 0f;
     }
 
-    public void Update ()
+    void Update ()
     {
-		currentHealth -= LeakRate * Time.deltaTime;
+		this.currentHealth -= this.LeakRate * Time.deltaTime;
     }
 }

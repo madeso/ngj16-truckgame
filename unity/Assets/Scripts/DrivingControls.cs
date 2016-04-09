@@ -1,7 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class DrivingControls : MonoBehaviour {
+
+    private Controller controller;
+    private InputDevice device;
+
+    public Controller Controller {
+        get {
+            return controller;
+        }
+        set {
+            controller = value;
+            device = controller.inputDevice;
+        }
+    }
 
     [SerializeField]
     private float acceleration = 40;
@@ -23,19 +37,20 @@ public class DrivingControls : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-        float input = Input.GetAxis("Vertical") * acceleration;
+        float input = acceleration;
         var locVel = transform.InverseTransformDirection(rigidbody.velocity);
         locVel -= locVel * friction * Time.deltaTime;
         locVel.z += input * Time.deltaTime;
         rigidbody.velocity = transform.TransformDirection(locVel);
 
-        float steering = Input.GetAxis("Horizontal") * turnRate * (locVel.magnitude / maxSpeed);
-        Vector3 newRotation = transform.localEulerAngles;
-        if (newRotation.y > 180) {
-            newRotation.y -= 360f;
+        if (device != null) {
+            float steering = device.RightStick.X * turnRate * (locVel.magnitude / maxSpeed);
+            Vector3 newRotation = transform.localEulerAngles;
+            if (newRotation.y > 180) {
+                newRotation.y -= 360f;
+            }
+            newRotation.y = Mathf.Clamp(newRotation.y + steering, -1*maxTurnAngle, maxTurnAngle);
+            transform.localEulerAngles = newRotation;
         }
-        newRotation.y = Mathf.Clamp(newRotation.y + steering, -1*maxTurnAngle, maxTurnAngle);
-        transform.localEulerAngles = newRotation;
-
 	}
 }
