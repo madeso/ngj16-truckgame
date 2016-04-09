@@ -56,6 +56,6 @@ public class ControllerManager : MonoBehaviour {
         if (truckId >= trucks.Length){
             return;
         }
-        trucks[truckId].GetComponent<Truck>().controller = controller;
+        //trucks[truckId].GetComponent<Truck>().controller = controller;
     }
 }
