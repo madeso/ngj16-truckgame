@@ -38,8 +38,8 @@ public class TruckController : MonoBehaviour {
 	void FixedUpdate () {
 
         if (device != null){
-            float steering = device.RightStick.X * turnRate;
-            m_Car.Move(steering, 0, 0, 0);
+            float steering = device.LeftStick.X * turnRate;
+            m_Car.Move(steering, acceleration, acceleration, 0);
         }
 	}
 }
