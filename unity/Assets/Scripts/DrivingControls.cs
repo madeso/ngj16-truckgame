@@ -37,7 +37,7 @@ public class DrivingControls : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-        float input = Input.GetAxis("Vertical") * acceleration;
+        float input = acceleration;
         var locVel = transform.InverseTransformDirection(rigidbody.velocity);
         locVel -= locVel * friction * Time.deltaTime;
         locVel.z += input * Time.deltaTime;
