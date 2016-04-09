@@ -16,7 +16,7 @@ public class BombProjectile : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		var go = other.gameObject;
 		if( go != null ) {
-			var h = go.GetComponent<Health>();
+            var h = go.GetComponentInParent<Health>();
 			if( h != null ) {
 				h.IncreaseLeakRate( 10 );
 			}

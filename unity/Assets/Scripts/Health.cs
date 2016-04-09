@@ -2,9 +2,13 @@
 
 public class Health : MonoBehaviour
 {
+    public GameObject leakParticlePrefab;
+    public float leakPercentageInterval = 20f;
     public float maxHealth = 1000f;
     private float currentHealth;
     private float leakRate = 0f;
+    private int leakParticleCount = 0;
+    private float nextLeakSpawnPercentage = 80f;
 
 	public float HealthPercentage {
 		get {
@@ -56,5 +60,14 @@ public class Health : MonoBehaviour
     void Update ()
     {
 		this.currentHealth -= this.LeakRate * Time.deltaTime;
+        if (HealthPercentage * 100f <= nextLeakSpawnPercentage) 
+        {
+            GameObject newLeakParticleEffect = (GameObject) Instantiate(leakParticlePrefab, transform.position, Quaternion.identity);
+            newLeakParticleEffect.transform.SetParent(transform);
+            newLeakParticleEffect.transform.localPosition = new Vector3(0, 2, -leakParticleCount / 2f);
+            newLeakParticleEffect.transform.Rotate(Vector3.up, 90f);
+            leakParticleCount++;
+            nextLeakSpawnPercentage -= leakPercentageInterval;
+        }
     }
 }
