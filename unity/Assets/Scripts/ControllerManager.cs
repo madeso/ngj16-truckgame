@@ -61,6 +61,7 @@ public class ControllerManager : MonoBehaviour {
             return;
         }
         trucks[truckId].GetComponent<TruckController>().Controller = controller;
+        trucks[truckId].GetComponent<ShootingTestControl>().Controller = controller;
     }
 
     private void StartGame(){
