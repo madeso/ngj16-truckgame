@@ -356,6 +356,7 @@ MonoBehaviour:
   acceleration: 80
   friction: 4
   turnRate: 1.5
+  maxTurnAngle: 50
 --- !u!23 &2128712715
 MeshRenderer:
   m_ObjectHideFlags: 0

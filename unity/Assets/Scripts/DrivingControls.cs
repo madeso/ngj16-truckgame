@@ -9,6 +9,8 @@ public class DrivingControls : MonoBehaviour {
     private float friction = 4;
     [SerializeField]
     private float turnRate = 15f;
+    [SerializeField]
+    private float maxTurnAngle = 50f;
 
     private float maxSpeed;
 
@@ -28,6 +30,12 @@ public class DrivingControls : MonoBehaviour {
         rigidbody.velocity = transform.TransformDirection(locVel);
 
         float steering = Input.GetAxis("Horizontal") * turnRate * (locVel.magnitude / maxSpeed);
-        transform.Rotate(Vector3.up, steering);
+        Vector3 newRotation = transform.localEulerAngles;
+        if (newRotation.y > 180) {
+            newRotation.y -= 360f;
+        }
+        newRotation.y = Mathf.Clamp(newRotation.y + steering, -1*maxTurnAngle, maxTurnAngle);
+        transform.localEulerAngles = newRotation;
+
 	}
 }
