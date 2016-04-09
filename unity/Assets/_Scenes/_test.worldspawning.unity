@@ -271,6 +271,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11418156, guid: d56add6dd6314433896e923ff98a6903, type: 2}
+      propertyPath: TerrainBias
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d56add6dd6314433896e923ff98a6903, type: 2}
   m_IsPrefabParent: 0
