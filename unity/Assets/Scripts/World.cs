@@ -1,0 +1,95 @@
+﻿using UnityEngine;
+using System.Collections.Generic;
+
+public class World : MonoBehaviour {
+
+	public WorldPart[] Parts;
+
+	private WorldPart RandomPart {
+		get {
+			var i = Random.Range(0, Parts.Length);
+			return Parts[i];
+		}
+	}
+
+	private List<WorldPart> alive = new List<WorldPart>(); // ordered from first y to last y
+
+	private static float VariableCameraPosition(float x) {
+		var c = Camera.main;
+		var r = c.ScreenPointToRay(new Vector3(0,c.pixelHeight * x,0));
+		var t = -r.origin.y / r.direction.y; // find t where y=0
+		var p = r.GetPoint(t);
+		return p.z;
+	}
+
+	private float CameraPositionBottom {
+		get {
+			return  VariableCameraPosition(0.0f);
+		}
+	}
+
+	private float CameraPositionTop {
+		get {
+			return VariableCameraPosition(1.0f);
+		}
+	}
+
+	private static float WidthOf(WorldPart p) {
+		// todo: determine actual size
+		return 10;
+	}
+
+	private static float TopOf(WorldPart p) {
+		return p.transform.position.z + WidthOf(p) / 2.0f;
+	}
+
+	private float EndPosition {
+		get {
+			var last = this.alive.Count-1;
+			if( last < 0 ) {
+				// no items, means the end pos is way back
+				return 0.0f;
+			}
+			return TopOf(this.alive[last]);
+		}
+	}
+
+	private float FirstPosition {
+		get {
+			if( this.alive.Count <=0 ) {
+				// no items, means the start pos is way back
+				return 0.0f;
+			}
+			return TopOf(this.alive[0]);
+		}
+	}
+
+	private int SpawnParts () {
+		var spawned = 0;
+
+		var end = this.EndPosition;
+		if (this.CameraPositionTop > end) {
+			var p = GameObject.Instantiate (this.RandomPart);
+			var v = new Vector3 (0, 0, end + WidthOf (p) / 2.0f);
+			this.alive.Add (p);
+			p.transform.position = v;
+			++spawned;
+		}
+		if (this.CameraPositionBottom > this.FirstPosition) {
+			// destroy first
+		}
+
+		return spawned;
+	}
+
+	void Start () {
+		var spawned = 0;
+		do {
+			spawned = SpawnParts();
+		} while(spawned > 0 );
+	}
+	
+	void Update () {
+		SpawnParts ();
+	}
+}
