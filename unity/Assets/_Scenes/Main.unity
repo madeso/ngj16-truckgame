@@ -2921,6 +2921,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09c609ed7038485c92651ef3d83a38e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leakParticlePrefab: {fileID: 162888, guid: 2d2857979d172ea40838a9455e087bec, type: 2}
+  leakPercentageInterval: 20
   maxHealth: 1000
 --- !u!114 &902940768
 MonoBehaviour:
@@ -5715,6 +5717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09c609ed7038485c92651ef3d83a38e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leakParticlePrefab: {fileID: 162888, guid: 2d2857979d172ea40838a9455e087bec, type: 2}
+  leakPercentageInterval: 20
   maxHealth: 1000
 --- !u!114 &1356341802
 MonoBehaviour:
