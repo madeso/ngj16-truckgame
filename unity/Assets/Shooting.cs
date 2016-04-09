@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour {
 	public float RotateSpeed = 0.4f;
 	public float shotChargePower = 10.0f;
 	public float maxShotPower = 1000.0f;
+	public Rigidbody referenceRigidBody;
 	public Rigidbody projectile;
 
 	private bool isShotCharging = false;
@@ -33,6 +34,9 @@ public class Shooting : MonoBehaviour {
 		print("Shooting with power: "+shotPower);
 		Rigidbody instantiatedProjectile = Instantiate(projectile,spawnPosition.position,barrel.rotation)as Rigidbody;
 		instantiatedProjectile.AddForce(spawnPosition.forward*shotPower);
+		if(referenceRigidBody != null){
+			instantiatedProjectile.GetComponent<Rigidbody>().velocity = referenceRigidBody.velocity;
+		}
 		//instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0,shotPower));
 	}
 	public void ChargeShot(){

@@ -887,7 +887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a2a748e9e6242098b0baf75e3b75e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 0
+  acceleration: 0.2
   turnRate: 15
   maxTurnAngle: 50
 --- !u!114 &719063331
@@ -914,9 +914,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barrel: {fileID: 391693642}
   spawnPosition: {fileID: 591545489}
-  RotateSpeed: 60
+  RotateSpeed: 80
   shotChargePower: 10
   maxShotPower: 1000
+  referenceRigidBody: {fileID: 719063336}
   projectile: {fileID: 5479446, guid: 731ff4e8599ab410dbb0c7ed0f72d1b5, type: 2}
 --- !u!114 &719063333
 MonoBehaviour:
