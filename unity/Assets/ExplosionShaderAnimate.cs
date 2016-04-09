@@ -34,7 +34,7 @@ public class ExplosionShaderAnimate : MonoBehaviour {
 		//rend.material.SetFloat("_ClipRange", 1 - (Time.time / fadeDuration));
 		float scaler = timePercent*8.0f;
 		transform.localScale.Scale(new Vector3(scaler,scaler,scaler));
-		if(timePercent>1.4){
+		if(timePercent>1){
 			Destroy(gameObject);
 		}
 	}

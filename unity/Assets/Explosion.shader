@@ -7,14 +7,14 @@
 
 		 _RampTex ("Color Ramp", 2D) = "white" {}
         _DispTex ("Displacement Texture", 2D) = "gray" {}
-        _Displacement ("Displacement", Range(0, 1.0)) = 0.1
+        _Displacement ("Displacement", Range(0, 1.0)) = 0.4
         _ChannelFactor ("ChannelFactor (r,g,b)", Vector) = (1,0,0)
         _Range ("Range (min,max)", Vector) = (0,0.5,0)
         _ClipRange ("ClipRange [0,1]", float) = 0.8
 	}
 	SubShader {
 
-		Tags { "RenderType"="Opaque" }
+		Tags { "RenderType"="Transparent" }
         Cull Off
         LOD 300
  
@@ -22,6 +22,7 @@
         #pragma surface surf Lambert vertex:disp nolightmap
         #pragma target 3.0
         #pragma glsl
+      
  
         sampler2D _DispTex;
         float _Displacement;
