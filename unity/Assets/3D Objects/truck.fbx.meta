@@ -14,6 +14,7 @@ ModelImporter:
     100012: Wheel.Back.Right
     100014: Wheel.Front.Left
     100016: Wheel.Front.Right
+    100018: turret
     400000: Camera
     400002: Cylinder
     400004: Lamp
@@ -23,24 +24,28 @@ ModelImporter:
     400012: Wheel.Back.Right
     400014: Wheel.Front.Left
     400016: Wheel.Front.Right
+    400018: turret
     2300000: Cylinder
     2300002: Truck.Body
     2300004: Wheel.Back.Left
     2300006: Wheel.Back.Right
     2300008: Wheel.Front.Left
     2300010: Wheel.Front.Right
+    2300012: turret
     3300000: Cylinder
     3300002: Truck.Body
     3300004: Wheel.Back.Left
     3300006: Wheel.Back.Right
     3300008: Wheel.Front.Left
     3300010: Wheel.Front.Right
+    3300012: turret
     4300000: Cylinder
     4300002: Wheel.Front.Left
     4300004: Truck.Body
     4300006: Wheel.Front.Right
     4300008: Wheel.Back.Right
     4300010: Wheel.Back.Left
+    4300012: turret
   materials:
     importMaterials: 1
     materialName: 0
