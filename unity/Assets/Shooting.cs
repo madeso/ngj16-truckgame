@@ -22,19 +22,24 @@ public class Shooting : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(isShotCharging){
-			shotPower+=shotChargePower;
-			shotPower = Mathf.Min(maxShotPower, shotPower);
+			shotPower=shotPower + shotChargePower;
+			//shotPower = Mathf.Min(maxShotPower, shotPower);
+			print("charging shot:"+shotPower);
 		}
 
 	}
 	public void DoShoot(){
+		isShotCharging = false;
 		print("Shooting with power: "+shotPower);
 		Rigidbody instantiatedProjectile = Instantiate(projectile,spawnPosition.position,barrel.rotation)as Rigidbody;
 		instantiatedProjectile.AddForce(spawnPosition.forward*shotPower);
 		//instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 0,shotPower));
 	}
 	public void ChargeShot(){
-		isShotCharging = true;
-		shotPower = 0;
+		if(!isShotCharging){
+			isShotCharging = true;
+			shotPower = 0;	
+		}
+
 	}
 }
