@@ -24,7 +24,7 @@ public class Shooting : MonoBehaviour {
 		if(isShotCharging){
 			shotPower=shotPower + shotChargePower;
 			//shotPower = Mathf.Min(maxShotPower, shotPower);
-			print("charging shot:"+shotPower);
+			//print("charging shot:"+shotPower);
 		}
 
 	}
