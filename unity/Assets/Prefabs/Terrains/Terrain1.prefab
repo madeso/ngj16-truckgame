@@ -107,6 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3873a465c3d45c9952df27a972f435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnLocations: []
+  Cactus: {fileID: 0}
+  Count: 2
 --- !u!218 &21810904
 Terrain:
   m_ObjectHideFlags: 1
