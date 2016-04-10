@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+    public delegate void SingleParamEvent(GameObject gameObject);
+    public static event SingleParamEvent OnPlayerDied;
+
     public GameObject leakParticlePrefab;
     public Image healthImage;
     public float leakPercentageInterval = 20f;
@@ -71,6 +74,11 @@ public class Health : MonoBehaviour
             newLeakParticleEffect.transform.Rotate(Vector3.up, 90f);
             leakParticleCount++;
             nextLeakSpawnPercentage -= leakPercentageInterval;
+        }
+
+        if (!IsAlive && OnPlayerDied != null)
+        {
+            OnPlayerDied(gameObject);
         }
     }
 }
