@@ -33,6 +33,10 @@ public class TruckController : MonoBehaviour {
         // get the car controller
         m_Car = GetComponent<CarController>();
 	}
+
+    void Start () {
+        Health.OnPlayerDied += OnPlayerDied;
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -41,4 +45,12 @@ public class TruckController : MonoBehaviour {
 			m_Car.Move(steering, acceleration, acceleration, 0);
         }
 	}
+
+    void OnPlayerDied(GameObject player) {
+        device = null;
+    }
+
+    void OnDestroy () {
+        Health.OnPlayerDied -= OnPlayerDied;
+    }
 }

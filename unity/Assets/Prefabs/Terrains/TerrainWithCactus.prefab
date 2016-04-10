@@ -685,7 +685,7 @@ MonoBehaviour:
   - {fileID: 136502}
   - {fileID: 130800}
   - {fileID: 134966}
-  Cactus: {fileID: 100000, guid: d75fdbc2595c644ef99b0d5362a841d7, type: 3}
+  Cactus: {fileID: 174514, guid: b7fa61611fbc94ade8d54b952607a2a8, type: 2}
   Count: 2
 --- !u!114 &11466504
 MonoBehaviour:
