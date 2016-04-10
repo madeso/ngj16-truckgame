@@ -27,8 +27,9 @@ public class GameOverUI : MonoBehaviour {
 	}
 
     void OnPlayerDied(GameObject player) {
-        int winningPlayer = (player.GetComponent<TruckController>().Controller.player == 0) ? 2 : 1;
-        gameOverText.text = "Player "+ winningPlayer +" Wins!\n\nPress start button to restart";
+        Color losingPlayerColor = player.GetComponent<TruckController>().Controller.color;
+        string winningPlayer = (losingPlayerColor.r > losingPlayerColor.b) ? "Blue" : "Red";
+        gameOverText.text = winningPlayer +" player wins!\n\nPress start button to restart";
         gameOverText.gameObject.SetActive(true);
         canRestartGame = true;
     }
