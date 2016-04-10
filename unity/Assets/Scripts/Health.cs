@@ -48,7 +48,7 @@ public class Health : MonoBehaviour
     public void IncreaseLeakRate (float leakRate)
     {
 		Debug.Assert(leakRate > 0.0f, "leak rate needs to be positive");
-		this.leakRate += leakRate;
+		this.leakRate += leakRate * 4f;
     }
 
     public void DecreaseLeakRate (float leakRate)
