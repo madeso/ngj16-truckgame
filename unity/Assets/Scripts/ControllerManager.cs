@@ -71,10 +71,6 @@ public class ControllerManager : MonoBehaviour {
 
 				}
             }
-
-            if (device.MenuWasPressed) {
-                StartGame();
-            }
         }
     }
 
@@ -107,8 +103,4 @@ public class ControllerManager : MonoBehaviour {
 			player2Icon.gameObject.SetActive(false);
 		}
 	}
-
-    private void StartGame(){
-        gameObject.SetActive(false);
-    }
 }
