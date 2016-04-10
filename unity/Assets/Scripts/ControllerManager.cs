@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using InControl;
+using UnityEngine.UI;
 
 
 public class ControllerManager : MonoBehaviour {
@@ -11,6 +12,8 @@ public class ControllerManager : MonoBehaviour {
 
     [SerializeField]
     private GameObject[] trucks;
+    [SerializeField]
+    private GameObject[] cylinders;
     private List<Controller> controllers = new List<Controller>();
 
 
@@ -44,6 +47,7 @@ public class ControllerManager : MonoBehaviour {
 				v.x = 0.0f;
 			}
 			icon.anchoredPosition = v;
+            controller.color = icon.GetComponent<Image>().color;
 		}
 	}
     // Update is called once per frame
@@ -90,6 +94,7 @@ public class ControllerManager : MonoBehaviour {
 			//print(controller.inputDevice.Meta);
 			updatePlayerIcon(controller);
 		}
+        cylinders[truckId].GetComponent<Renderer>().material.color = controller.color;
 		
 		if(truck1Controller != null & truck2Controller != null){
 			
