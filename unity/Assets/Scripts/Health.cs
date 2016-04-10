@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     public GameObject leakParticlePrefab;
+    public Image healthImage;
     public float leakPercentageInterval = 20f;
     public float maxHealth = 1000f;
     private float currentHealth;
@@ -60,6 +62,7 @@ public class Health : MonoBehaviour
     void Update ()
     {
 		this.currentHealth -= this.LeakRate * Time.deltaTime;
+        healthImage.fillAmount = HealthPercentage;
         if (HealthPercentage * 100f <= nextLeakSpawnPercentage) 
         {
             GameObject newLeakParticleEffect = (GameObject) Instantiate(leakParticlePrefab, transform.position, Quaternion.identity);
