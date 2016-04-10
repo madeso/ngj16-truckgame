@@ -32,7 +32,13 @@ public class ShootingTestControl : MonoBehaviour {
             if(device.RightBumper.WasReleased){
                 shootComponent.DoShoot();
             }
-            shootComponent.barrel.Rotate(0,0,device.RightStick.X * shootComponent.RotateSpeed * Time.deltaTime);
+
+			var v = new Vector3(this.device.RightStickX, 0, this.device.RightStickY);
+			if( v.sqrMagnitude > 0.1f ) {
+				shootComponent.barrel.LookAt(this.transform.position + v*10, Vector3.up);
+			}
+
+            // shootComponent.barrel.Rotate(0,0,device.RightStick.X * shootComponent.RotateSpeed * Time.deltaTime);
         } else {
             if (Input.GetButtonDown("Fire1")){
                 shootComponent.ChargeShot();
