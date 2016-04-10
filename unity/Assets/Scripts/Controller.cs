@@ -8,6 +8,7 @@ public class Controller
     public int roleId = -1;
     public int truckId = -1;
 	public int player = -1;
+    public Color color;
 
 	public Controller (InputDevice device, int playerNumber)
     {
