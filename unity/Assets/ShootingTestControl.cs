@@ -35,13 +35,14 @@ public class ShootingTestControl : MonoBehaviour {
 
 			shootComponent.barrel.Rotate(0,0,device.RightStick.X * shootComponent.RotateSpeed * Time.deltaTime);
         } else {
+			/*
             if (Input.GetButtonDown("Fire1")){
                 shootComponent.ChargeShot();
             }
             if (Input.GetButtonUp("Fire1")){
                 shootComponent.DoShoot();
             }
-			shootComponent.barrel.Rotate(0,0,Input.GetAxis("Horizontal")*shootComponent.RotateSpeed*Time.deltaTime);
+			shootComponent.barrel.Rotate(0,0,Input.GetAxis("Horizontal")*shootComponent.RotateSpeed*Time.deltaTime);*/
         }
 	}
 }
