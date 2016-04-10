@@ -37,7 +37,7 @@ public class ExplodeAndDie : MonoBehaviour {
 
 			// todo: fix random position
 			var o = GameObject.Instantiate(this.Explosion);
-			o.transform.position = this.transform.position + Random.insideUnitSphere * 1.3f;
+			o.transform.position = this.transform.position + Random.insideUnitSphere * 2.0f;
 
 			// don't use physics for theese...
 			foreach(var ep in o.GetComponents<ExplosionPhysics>()) {

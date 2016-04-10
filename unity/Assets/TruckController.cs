@@ -40,9 +40,10 @@ public class TruckController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (device != null){
+		if (device != null){
+			var sp = this.m_Car.CurrentSpeed / this.m_Car.MaxSpeed;
             float steering = device.LeftStick.X * turnRate;
-			m_Car.Move(steering, acceleration, acceleration, 0);
+			m_Car.Move(steering * (1.2f - sp), acceleration, acceleration, 0);
         }
 	}
 

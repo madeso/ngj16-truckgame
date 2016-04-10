@@ -32,8 +32,14 @@ public class Shooting : MonoBehaviour {
 	public void DoShoot(){
 		isShotCharging = false;
 		print("Shooting with power: "+shotPower);
-		Rigidbody instantiatedProjectile = Instantiate(projectile,spawnPosition.position,barrel.rotation)as Rigidbody;
-		instantiatedProjectile.AddForce(spawnPosition.forward*shotPower);
+
+		var r = barrel.rotation;
+		//r = r * Quaternion.AngleAxis(90, Vector3.right);
+
+		Rigidbody instantiatedProjectile = Instantiate(projectile,spawnPosition.position,r)as Rigidbody;
+		var dir = spawnPosition.forward;
+		dir.y -= 0.2f;
+		instantiatedProjectile.AddForce(dir*shotPower);
 		if(referenceRigidBody != null){
 			instantiatedProjectile.GetComponent<Rigidbody>().velocity = referenceRigidBody.velocity;
 		}
